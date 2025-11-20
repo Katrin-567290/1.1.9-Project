@@ -1,1 +1,143 @@
-import turtle
+import turtle as trtl
+import math
+t=trtl.Turtle()
+t.speed(0)
+screen = trtl.Screen()
+#create bg color and size
+screen.bgcolor("#3c96a8")
+screen.setup(600, 400)
+t.penup()
+t.goto(83,120)
+t.pendown()
+#make belly
+t.penup()
+t.left(90)
+t.forward(20)
+t.right(90)
+t.pendown()
+t.pencolor("#b8ad59")
+t.fillcolor("#b8ad59")
+t.pensize(5)
+t.right(45)
+t.begin_fill()
+for i in range(10):
+  t.forward(2*math.pi)
+  t.left(9)
+t.end_fill()
+#make shell
+t.pensize(1)
+t.pencolor("#cec3a0")
+t.fillcolor("#785d46")
+t.begin_fill()
+t.left(90)
+for i in range(10):
+  t.forward(2*math.pi)
+  t.left(9)
+t.end_fill()
+#make shell shapes
+t.pensize(1)
+t.pencolor("#cec3a0")
+t.fillcolor("#785d46")
+for i in range(6):
+  t.setheading(0)
+  t.penup()
+  t.forward(7)
+  t.pendown()
+  t.right(i+2)
+  if(i%2==0):
+    t.begin_fill()
+    if(i>=4):
+      t.right(5)
+      t.circle(i-1,360,6)
+    else:
+      t.left(5)
+      t.circle(i+2,360,6)
+    t.end_fill()
+  else:
+    t.begin_fill()
+    if(i>=3):
+      t.right(5)
+      t.circle(i-1.2,360,5)
+    else:
+      t.left(5)
+      t.circle(i+1.5,360,5)
+    t.end_fill()
+#make turtle head
+t.penup()
+t.goto(83,140)
+t.setheading(180)
+t.pencolor("#b8ad59")
+t.pendown()
+t.pensize(10)
+t.forward(15)
+t.pencolor("#595144")
+t.fillcolor("#595144")
+t.begin_fill()
+t.setheading(-90)
+t.circle(6,180,7)
+t.end_fill()
+t.pencolor("#5e4738")
+t.fillcolor("#5e4738")
+t.begin_fill()
+t.setheading(180)
+t.pensize(5)
+t.right(90)
+t.circle(7,180,8)
+t.end_fill()
+t.pensize(2)
+t.pencolor("green")
+t.circle(2)
+#make turtle fins
+t.penup()
+t.pensize(1)
+t.turtlesize(1)
+t.goto(100,130)
+t.pencolor("#493f37")
+t.fillcolor("#493f37")
+t.setheading(225)
+t.pendown()
+t.circle(10,180)
+
+
+
+#move to where brain coral is
+t.pensize(15)
+t.pencolor("#fbad40")
+t.fillcolor("#fbad40")
+t.penup()
+t.goto(60,-180)
+t.pendown()
+#create brain coral shape
+t.begin_fill()
+t.circle(13)
+t.end_fill()
+#make octagon variables, set colors
+t.pencolor("#49330e")
+t.pensize(1)
+t.fillcolor("#49330e")
+#angle for angle and space for space inbetween octagons and size for variation of size
+angle=60
+space=1
+size=1
+t.penup()
+t.goto(61,-170)
+#make octagons
+while t.ycor()<=-150 and t.ycor()>=-185:
+  t.penup()
+  t.left(angle)
+  t.forward(space+3)
+  t.pendown()
+  t.begin_fill()
+  t.circle(size,360,8)
+  t.end_fill()
+  space+=1
+  angle+=0.5
+  size+=0.1
+
+
+
+
+
+
+
+screen.mainloop()
