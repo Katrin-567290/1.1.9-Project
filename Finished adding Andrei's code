@@ -1,0 +1,157 @@
+import turtle as trtl
+import math
+t=trtl.Turtle()
+t.speed(0)
+screen = trtl.Screen()
+t.hideturtle()
+#create bg color and size
+screen.bgcolor("#3c96a8")
+screen.setup(600, 400)
+#sand
+t.penup()
+t.fillcolor('khaki')
+t.pencolor('khaki')
+t.begin_fill()
+t.goto(0,-2120)
+t.pendown()
+t.circle(1000)
+t.end_fill()
+#move to where brain coral is
+t.pensize(15)
+t.pencolor("#fbad40")
+t.fillcolor("#fbad40")
+t.penup()
+t.goto(60,-150)
+t.pendown()
+#create brain coral shape
+t.begin_fill()
+t.circle(13)
+t.end_fill()
+#make octagon variables, set colors
+t.pencolor("#49330e")
+t.pensize(1)
+t.fillcolor("#49330e")
+#angle for angle and space for space inbetween octagons and size for variation of size
+angle=60
+space=1
+size=1
+t.penup()
+t.goto(61,-140)
+#make octagons
+while t.ycor()<=-120 and t.ycor()>=-155:
+  t.penup()
+  t.left(angle)
+  t.forward(space+3)
+  t.pendown()
+  t.begin_fill()
+  t.circle(size,360,8)
+  t.end_fill()
+  space+=1
+  angle+=0.5
+  size+=0.1
+t.penup()
+t.goto(-230,-170)
+t.setheading(0)
+
+
+# go between rocks to make seawead
+# t.setheading(180)
+# t.forward(25)
+
+#code for squiggily line
+length = 0
+circle_size = 3.33
+circle_angle = -180
+
+  
+
+
+
+# code for squiggily line (left half-oval)
+
+oval_w = 6  # horizontal radius
+oval_h = 20    # vertical radius
+
+t.pendown()
+t.begin_fill()
+t.fillcolor("#2CB05C")
+t.setheading(90)
+t.forward(40)
+
+for i in range(2):
+    
+    
+    t.setheading(0)
+    t.circle(oval_w, -60) 
+    t.circle(oval_h, -60)   
+    t.circle(oval_w, -60)   
+    t.setheading(-270)
+    
+
+
+t.setheading(0)
+t.forward(20)
+
+for i in range(2):
+    t.setheading(180)
+    t.circle(oval_w, -60) 
+    t.circle(oval_h, -60)   
+    t.circle(oval_w, -60)   
+    t.setheading(-270)
+
+t.setheading(270)
+t.forward(40)
+t.end_fill()
+t.penup()
+t.setheading(180)
+t.forward(50)
+#rocks
+t.penup()
+t.setheading(0)
+t.right(90)
+
+t.pendown()
+t.fillcolor("#A9A9A9")
+t.begin_fill()
+t.circle(25, -180)
+t.end_fill()
+
+
+t.left(180)
+t.pendown()
+t.fillcolor("#808080")
+t.begin_fill()
+t.circle(8.33, -180)
+t.end_fill()
+t.penup()
+#somethin
+t.penup()
+t.goto(-110,-160)
+t.pensize(5)
+t.pencolor("#4fffa1")
+t.setheading(90)
+
+
+
+n_of_lines = 30
+heading = 180
+lenght = 40
+
+
+
+t.pendown()
+for i in range(n_of_lines):
+  t.setheading(heading)
+  t.forward(lenght)
+  t.backward(lenght)
+  heading = heading -7
+  
+  if heading <= 0:
+    heading = 180
+  
+t.setheading(0)
+t.forward(lenght)
+t.backward(lenght)
+t.penup()
+
+screen.mainloop()
