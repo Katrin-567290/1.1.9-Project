@@ -1,15 +1,13 @@
 import turtle as t
 
-
-
 # https://docs.python.org/3/library/turtle.html#turtle.setheading
 
 #change screen size
 screen = t.Screen()
 screen.setup(600, 400)
 
-t.speed(0)
-"""
+t.speed(3)
+
 t.penup()
 t.forward(-100)
 t.right(90)
@@ -79,13 +77,13 @@ t.setheading(270)
 t.forward(40)
 t.end_fill()
 t.penup()
-"""
 
 
-"""
+
+
 jellyfish1_color = 94, 44, 163
 
-t.speed(0)
+
 t.pensize(5)
 
 t.pendown()
@@ -133,12 +131,12 @@ for i in range(tenticle_number):
   t.pendown()
 
 t.penup()
-"""
 
-"""
+
+
 jellyfish2_color = 240, 183, 91
 
-t.speed(0)
+
 t.pensize(5)
 
 t.pendown()
@@ -186,10 +184,10 @@ for i in range(tenticle_number):
   t.pendown()
 
 t.penup()
-"""
 
 
-"""  
+
+
 t.penup()
 t.pensize(5)
 t.pencolor(79, 255, 161)
@@ -217,4 +215,3 @@ t.setheading(0)
 t.forward(lenght)
 t.backward(lenght)
 t.penup()
-"""
