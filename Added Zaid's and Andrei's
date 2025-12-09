@@ -472,9 +472,9 @@ def jelly_or():
 mc1pos=200
 mc2pos=-100
 ojpos=125
-pjpos=-150
+pjpos=-110
 ojmove=3
-pjmove=6
+pjmove=5
 while True:
   t._tracer(0)
   background()
@@ -498,15 +498,15 @@ while True:
   t.goto(160,ojpos)
   if ojpos==170:
     ojmove=-3
-  elif ojpos==-170:
+  elif ojpos==-121:
     ojmove=3
   ojpos+=ojmove
   jelly_or()
   t.goto(-230,pjpos)
-  if pjpos==174:
-    pjmove=-6
-  elif pjpos==-172:
-    pjmove=6
+  if pjpos==170:
+    pjmove=-5
+  elif pjpos==-140:
+    pjmove=5
   pjpos+=pjmove
   jelly_pu()
   t._tracer(1)
