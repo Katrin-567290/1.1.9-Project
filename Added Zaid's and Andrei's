@@ -143,7 +143,7 @@ def fan_coral():
   t.forward(lenght)
   t.backward(lenght)
   t.penup()
-
+  
 #RYCHELLE - Rectangular coral code
 def coral1():
   t.pencolor("mediumvioletred")
@@ -314,7 +314,7 @@ def drawcoral():
   t.setheading(0)
   coral_p()
 
-#molecrab
+#Zaid molecrab
 def molecrab():
   t.pensize(1)
   t.color("black")
@@ -374,8 +374,107 @@ def molecrab():
   t.up()
   t.setheading(0)
   
+#Andrei jellyfish
+def jelly_pu():
+  jellyfish1_color ="#5E2CA3"
+  t.pensize(5)
+  t.pendown()
+  t.pencolor(jellyfish1_color)
+  t.setheading(180)
+  t.forward(25)
+  t.setheading(270)
+  t.begin_fill()
+  t.fillcolor(jellyfish1_color)
+  t.circle(12.5, -180)
+  t.end_fill()
+  t.penup()
+  
+  t.setheading(180)
+  t.forward(23)
+  t.pendown()
+  
+  t.pensize(3)
+  t.pencolor(jellyfish1_color)
+  tenticle_lenght = 2
+  tenticle_number = 2
+  
+  for i in range(tenticle_number):
+    for i in range(tenticle_lenght):
+      t.setheading(180)
+      t.circle(3.75, 180)
+      t.setheading(-180)
+      t.circle(3.75, -180)
+    
+    t.penup()
+    t.forward(7.5)
+    t.pendown()
+    
+    for i in range(tenticle_lenght):
+      t.setheading(0)
+      t.circle(3.75, 180)
+      t.setheading(360)
+      t.circle(3.75, -180)
+    
+    t.penup()
+    t.setheading(0)
+    t.forward(7.5)
+    t.pendown()
+  
+  t.penup()
+
+def jelly_or():
+  jellyfish2_color ="#F0B75B"
+  
+  t.pensize(5)
+  
+  t.pendown()
+  t.pencolor(jellyfish2_color)
+  t.setheading(180)
+  t.forward(25)
+  t.setheading(270)
+  t.begin_fill()
+  t.fillcolor(jellyfish2_color)
+  t.circle(12.5, -180)
+  t.end_fill()
+  t.penup()
+  
+  t.setheading(180)
+  t.forward(23)
+  t.pendown()
+  
+  t.pensize(3)
+  t.pencolor(jellyfish2_color)
+  tenticle_lenght = 2
+  tenticle_number = 2
+  for i in range(tenticle_number):
+    for i in range(tenticle_lenght):
+      t.setheading(180)
+      t.circle(3.75, 180)
+      t.setheading(-180)
+      t.circle(3.75, -180)
+    
+    t.penup()
+    t.forward(7.5)
+    t.pendown()
+    
+    for i in range(tenticle_lenght):
+      t.setheading(0)
+      t.circle(3.75, 180)
+      t.setheading(360)
+      t.circle(3.75, -180)
+    
+    t.penup()
+    t.setheading(0)
+    t.forward(7.5)
+    t.pendown()
+  t.penup()
+  
 mc1pos=200
 mc2pos=-100
+ojpos=125
+pjpos=-150
+ojmove=3
+pjmove=6
 while True:
   t._tracer(0)
   background()
@@ -395,6 +494,21 @@ while True:
   if mc2pos<-350:
     mc2pos=350
   molecrab()
+  t.up()
+  t.goto(160,ojpos)
+  if ojpos==170:
+    ojmove=-3
+  elif ojpos==-170:
+    ojmove=3
+  ojpos+=ojmove
+  jelly_or()
+  t.goto(-230,pjpos)
+  if pjpos==174:
+    pjmove=-6
+  elif pjpos==-172:
+    pjmove=6
+  pjpos+=pjmove
+  jelly_pu()
   t._tracer(1)
   t._update()
 
