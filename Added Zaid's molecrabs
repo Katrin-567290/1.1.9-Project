@@ -1,0 +1,401 @@
+import turtle as trtl
+import math
+t=trtl.Turtle()
+t.speed(0)
+screen = trtl.Screen()
+t.hideturtle()
+#KATRIN - create bg color and size
+screen.setup(600, 400)
+def background():
+  t.up()
+  t.goto(-300,200)
+  t.fillcolor("#3c96a8")
+  t.begin_fill()
+  t.goto(300,200)
+  t.goto(300,-200)
+  t.goto(-300,-200)
+  t.goto(-300,200)
+  t.end_fill()
+#RYCHELLE - sand
+def sand():
+  t.penup()
+  t.fillcolor('khaki')
+  t.pencolor('khaki')
+  t.begin_fill()
+  t.goto(0,-2120)
+  t.pendown()
+  t.circle(1000)
+  t.end_fill()
+
+#KATRIN - move to where brain coral is
+def brain_coral():
+  t.pensize(15)
+  t.pencolor("#fbad40")
+  t.fillcolor("#fbad40")
+  t.penup()
+  t.goto(60,-150)
+  t.pendown()
+  #create brain coral shape
+  t.begin_fill()
+  t.circle(13)
+  t.end_fill()
+  #make octagon variables, set colors
+  t.pencolor("#49330e")
+  t.pensize(1)
+  t.fillcolor("#49330e")
+  #angle for angle and space for space inbetween octagons and size for variation of size
+  angle=60
+  space=1
+  size=1
+  t.penup()
+  t.goto(61,-140)
+  #make octagons
+  while t.ycor()<=-120 and t.ycor()>=-155:
+    t.penup()
+    t.left(angle)
+    t.forward(space+3)
+    t.pendown()
+    t.begin_fill()
+    t.circle(size,360,8)
+    t.end_fill()
+    space+=1
+    angle+=0.5
+    size+=0.1
+  t.penup()
+  t.goto(-230,-170)
+  t.setheading(0)
+
+#ANDREI - code for squiggily line kelp
+def kelp_rocks():
+  length = 0
+  circle_size = 3.33
+  circle_angle = -180
+  # code for squiggily line (left half-oval)
+  
+  oval_w = 6  # horizontal radius
+  oval_h = 20    # vertical radius
+  
+  t.pendown()
+  t.begin_fill()
+  t.fillcolor("#2CB05C")
+  t.setheading(90)
+  t.forward(40)
+  #Drawing kelp
+  for i in range(2):
+      t.setheading(0)
+      t.circle(oval_w, -60) 
+      t.circle(oval_h, -60)   
+      t.circle(oval_w, -60)   
+      t.setheading(-270)
+  t.setheading(0)
+  t.forward(20)
+  for i in range(2):
+      t.setheading(180)
+      t.circle(oval_w, -60) 
+      t.circle(oval_h, -60)   
+      t.circle(oval_w, -60)   
+      t.setheading(-270)
+  t.setheading(270)
+  t.forward(40)
+  t.end_fill()
+  t.penup()
+  t.setheading(180)
+  t.forward(50)
+  #rocks
+  t.penup()
+  t.setheading(0)
+  t.right(90)
+  #rock 1
+  t.pendown()
+  t.fillcolor("#A9A9A9")
+  t.begin_fill()
+  t.circle(25, -180)
+  t.end_fill()
+  #rock 2
+  t.left(180)
+  t.pendown()
+  t.fillcolor("#808080")
+  t.begin_fill()
+  t.circle(8.33, -180)
+  t.end_fill()
+  t.penup()
+#circular fan coral
+def fan_coral():
+  t.penup()
+  t.goto(-110,-160)
+  t.pensize(5)
+  t.pencolor("#4fffa1")
+  t.setheading(90)
+  #variables
+  n_of_lines = 30
+  heading = 190
+  lenght = 40
+  #circular coral code
+  t.pendown()
+  for i in range(n_of_lines):
+    t.setheading(heading)
+    t.forward(lenght)
+    t.backward(lenght)
+    heading = heading -7
+    if heading <= 0:
+      heading = 180
+  t.setheading(0)
+  t.forward(lenght)
+  t.backward(lenght)
+  t.penup()
+
+#RYCHELLE - Rectangular coral code
+def coral1():
+  t.pencolor("mediumvioletred")
+  t.fillcolor("mediumvioletred")
+  t.begin_fill()
+  t.circle(10,360,4)
+  t.end_fill()
+  
+def coral2():
+  t.pencolor("mediumvioletred")
+  t.fillcolor("mediumvioletred")
+  t.begin_fill()
+  t.forward(20)
+  t.right(90)
+  t.forward(15)
+  t.right(90)
+  t.forward(20)
+  t.right(90)
+  t.forward(15)
+  t.right(20)
+  t.end_fill()
+  
+def coral3():
+  t.pencolor("mediumvioletred")
+  t.fillcolor("mediumvioletred")
+  t.begin_fill()
+  t.forward(10)
+  t.right(90)
+  t.forward(5)
+  t.right(90)
+  t.forward(10)
+  t.right(90)
+  t.forward(5)
+  t.right(20)
+  t.end_fill()
+
+def rect_coral():
+  t.penup()
+  t.goto(160,-160)
+  t.setheading(-10)
+  t.left(100)
+  for i in range(5):
+    t.pendown()
+    coral2()
+    t.penup()
+    t.right(80)
+    t.forward(20)
+  t.penup()
+  t.goto(170,-150)
+  t.left(90)
+  for i in range(4):
+    t.pendown()
+    coral1()
+    t.penup()
+    t.right(10)
+    t.forward(12)
+  
+  t.penup()
+  t.goto(170,-150)
+  t.right(90)
+  for i in range(6):
+    t.pendown()
+    coral1()
+    t.penup()
+    t.left(10)
+    t.forward(12)
+
+#ZAID - Semicircular square coral
+t.up()
+t.goto(-250,-180)
+t.setheading(0)
+
+def coral_o():
+  t.pensize(10)
+  t.color("orange")
+  t.down()
+  t.left(90)
+  t.fd(10)
+  t.left(45)
+  t.fd(10)
+  t.left(180)
+  t.fd(10)
+  t.left(90)
+  t.fd(10)
+  t.left(45)
+  t.fd(10)
+  t.up()
+  t.left(180)
+  t.fd(10)
+  t.right(45)
+  t.fd(10)
+  t.left(45)
+  t.fd(10)
+  t.left(90)
+
+def coral_b():
+  t.pensize(15)
+  t.color("lightblue")
+  t.down()
+  t.left(90)
+  t.fd(20)
+  t.left(45)
+  t.pensize(5)
+  for i in range(10):
+    t.fd(60)
+    t.right(180)
+    t.fd(60)
+    t.left(170)
+  t.up()
+  t.right(125)
+  t.fd(20)
+  t.left(90)
+  
+def coral_p():
+  t.setheading(0)
+  t.pensize(0)
+  t.color("pink")
+  t.up()
+  t.fd(40)
+  t.right(90)
+  t.fd(10)
+  t.begin_fill()
+  t.left(180)
+  t.circle(40,180)
+  t.end_fill()
+  t.left(90)
+  t.fd(40)
+  for i in range(7):
+    if i%2==0:
+      t.setheading(152.5)
+      t.color("#4b008c")
+    else:
+      t.setheading(165)
+      t.color("#8900ff")
+    for j in range(6+i%2):
+      t.fd(35-5*i)
+      t.right(90)
+      t.begin_fill()
+      t.fd(5-i//2)
+      t.left(90)
+      t.fd(10-2*(i//2))
+      t.left(90)
+      t.fd(10-2*(i//2))
+      t.left(90)
+      t.fd(10-2*(i//2))
+      t.left(90)
+      t.fd(5-i//2)
+      t.end_fill()
+      t.right(90)
+      t.fd(35-5*i)
+      t.left(180)
+      t.right(25)
+
+def drawcoral():
+  t.goto(-50,-170)
+  t.setheading(-3)
+  coral_o()
+  t.goto(260,-165)
+  t.setheading(3)
+  coral_o()
+  t.goto(-15,-130)
+  t.setheading(0)
+  coral_b()
+  t.goto(78,-170)
+  t.setheading(0)
+  coral_p()
+  t.goto(-275,-183)
+  t.setheading(0)
+  coral_p()
+
+#molecrab
+def molecrab():
+  t.pensize(1)
+  t.color("black")
+  t.fillcolor("#e3edd3")
+  t.right(180)
+  t.fd(30)
+  t.setheading(200)
+  t.down()
+  for i in range(4):
+    t.right(90)
+    t.begin_fill()
+    t.fd(4)
+    t.left(90)
+    t.fd(30)
+    t.circle(4,180)
+    t.fd(30)
+    t.left(90)
+    t.fd(4)
+    t.end_fill()
+    t.right(90)
+    t.right(150)
+  t.setheading(0)
+  t.fd(30)
+  t.fillcolor("#596348")
+  t.setheading(140)
+  t.begin_fill()
+  t.circle(60,50)
+  t.left(100)
+  t.fd(20)
+  t.circle(20,125)
+  t.fd(12)
+  t.end_fill()
+  t.right(-90)
+  t.begin_fill()
+  t.circle(15,-90)
+  t.left(90)
+  t.fd(15)
+  t.end_fill()
+  t.right(90)
+  t.fd(12)
+  t.up()
+  t.setheading(180)
+  t.fd(45)
+  t.right(90)
+  t.fd(15)
+  t.left(45)
+  t.pensize(1)
+  t.color("black")
+  t.fillcolor("#e3edd3")
+  t.down()
+  t.begin_fill()
+  t.fd(10)
+  t.circle(2,180)
+  t.fd(10)
+  t.circle(2,180)
+  t.end_fill()
+  t.up()
+  t.setheading(0)
+  
+mc1pos=200
+mc2pos=-100
+while True:
+  t._tracer(0)
+  background()
+  sand()
+  brain_coral()
+  kelp_rocks()
+  fan_coral()
+  rect_coral()
+  drawcoral()
+  t.goto(mc1pos,-160)
+  mc1pos-=5
+  if mc1pos<-350:
+    mc1pos=350
+  molecrab()
+  t.goto(mc2pos,-160)
+  mc2pos-=7
+  if mc2pos<-350:
+    mc2pos=350
+  molecrab()
+  t._tracer(1)
+  t._update()
+
+screen.mainloop()
