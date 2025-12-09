@@ -3,13 +3,14 @@ t = trtl
 
 screen = trtl.Screen()
 screen.setup(600,400)
+screen.bgcolor("#3c96a8")
 
 t.speed(10)
 t.penup()
 t.fillcolor('khaki')
 t.pencolor('khaki')
-t.begin_fill()
 t.goto(0,-2120)
+t.begin_fill()
 t.pendown()
 t.circle(1000)
 t.end_fill()
@@ -19,8 +20,8 @@ def fish_one():
   t.penup()
   t.goto(140,-50)
   t.pendown()
-  t.fillcolor('orange')
-  t.pencolor('orange')
+  t.fillcolor('salmon')
+  t.pencolor('salmon')
   t.begin_fill()
   t.goto(220,0)
   t.left(180)
@@ -39,8 +40,8 @@ def fish_one():
   t.penup()
   t.goto(140,0)
   t.pendown()
-  t.fillcolor('orange')
-  t.pencolor('orange')
+  t.fillcolor('salmon')
+  t.pencolor('salmon')
   t.begin_fill()
   t.goto(160,30)
   t.goto(170,10)
@@ -50,8 +51,8 @@ def fish_one():
   t.penup()
   t.goto(100,-40)
   t.pendown()
-  t.fillcolor('yellowgreen')
-  t.pencolor('yellowgreen')
+  t.fillcolor('seagreen')
+  t.pencolor('seagreen')
   t.begin_fill()
   t.circle(40)
   t.end_fill()
@@ -68,8 +69,8 @@ def fish_one():
   t.penup()
   t.goto(150,-70)
   t.pendown()
-  t.fillcolor('orange')
-  t.pencolor('orange')
+  t.fillcolor('salmon')
+  t.pencolor('salmon')
   t.begin_fill()
   t.circle(10,270)
   t.end_fill()
@@ -79,9 +80,15 @@ def fish_one():
   t.right(10)
   t.goto(140,-40)
   t.pendown()
-  t.fillcolor('forestgreen')
-  t.pencolor('forestgreen')
-  t.circle(50,40)
+  t.fillcolor('honeydew')
+  t.pencolor('honeydew')
+  t.circle(50,43)
+  
+  t.penup()
+  t.goto(160,-40)
+  t.pendown()
+  t.right(43)
+  t.circle(50,43)
 
 #Fish 2
 def fish_two():
@@ -89,8 +96,8 @@ def fish_two():
   t.penup()
   t.goto(-160,50)
   t.pendown()
-  t.fillcolor('red')
-  t.pencolor('red')
+  t.fillcolor('firebrick')
+  t.pencolor('firebrick')
   t.begin_fill()
   t.circle(30, 360, 3)
   t.end_fill()
@@ -108,8 +115,8 @@ def fish_two():
   t.penup()
   t.goto(-110,50)
   t.pendown()
-  t.fillcolor('red')
-  t.pencolor('red')
+  t.fillcolor('firebrick')
+  t.pencolor('firebrick')
   t.begin_fill()
   t.circle(30, 360, 3)
   t.end_fill()
@@ -126,8 +133,8 @@ def fish_two():
   t.penup()
   t.goto(-155,35)
   t.pendown()
-  t.fillcolor('orange')
-  t.pencolor('orange')
+  t.fillcolor('darkorange')
+  t.pencolor('darkorange')
   t.begin_fill()
   t.circle(10, 360, 3)
   t.end_fill()
@@ -178,7 +185,7 @@ def fish_three():
   t.pendown()
   t.fillcolor('lightsteelblue')
   t.pencolor('lightsteelblue')
-  t.right(90)
+  t.right(93)
   t.begin_fill()
   t.circle(17,360,3)
   t.end_fill()
@@ -206,16 +213,18 @@ fish_one()
 fish_two()
 fish_three()
 
+#creates square coral pieces
 def coral1():
-  t.pencolor("mediumvioletred")
-  t.fillcolor("mediumvioletred")
+  t.pencolor("darkslateblue")
+  t.fillcolor("darkslateblue")
   t.begin_fill()
   t.circle(10,360,4)
   t.end_fill()
   
+#creates rectangular coral pieces
 def coral2():
-  t.pencolor("mediumvioletred")
-  t.fillcolor("mediumvioletred")
+  t.pencolor("darkslateblue")
+  t.fillcolor("darkslateblue")
   t.begin_fill()
   t.forward(20)
   t.right(90)
@@ -227,9 +236,10 @@ def coral2():
   t.right(20)
   t.end_fill()
   
+#creates smaller versions of the rectangular coral
 def coral3():
-  t.pencolor("mediumvioletred")
-  t.fillcolor("mediumvioletred")
+  t.pencolor("darkslateblue")
+  t.fillcolor("darkslateblue")
   t.begin_fill()
   t.forward(10)
   t.right(90)
@@ -241,6 +251,7 @@ def coral3():
   t.right(20)
   t.end_fill()
 
+#This draws out the first group of coral
 t.penup()
 t.goto(-100,-130)
 t.left(200)
@@ -250,6 +261,8 @@ for i in range(5):
   t.penup()
   t.right(80)
   t.forward(20)
+  
+#Draws out the second group of coral using the squared ones  
 t.penup()
 t.goto(-90,-120)
 t.left(90)
@@ -260,6 +273,7 @@ for i in range(4):
   t.right(10)
   t.forward(12)
 
+#Final group of coral using the smaller rectangular ones
 t.penup()
 t.goto(-90,-120)
 t.right(90)
@@ -269,6 +283,10 @@ for i in range(6):
   t.penup()
   t.left(10)
   t.forward(12)
-   
+
+t.ht()
+
+
+
 trtl.done()
 
