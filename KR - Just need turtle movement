@@ -4,6 +4,180 @@ t=trtl.Turtle()
 t.speed(0)
 screen = trtl.Screen()
 t.hideturtle()
+
+p=trtl.Turtle()
+p.up()
+p.hideturtle()
+
+#Draw first orange coral design with base at current position
+def coral1():
+  p.pensize(20)
+  p.color("orange")
+  p.down()
+  p.left(90)
+  p.fd(30)
+  p.left(45)
+  p.fd(30)
+  p.left(180)
+  p.fd(30)
+  p.left(90)
+  p.fd(30)
+  p.left(45)
+  p.fd(30)
+  p.up()
+  p.left(180)
+  p.fd(30)
+  p.right(45)
+  p.fd(30)
+  p.left(45)
+  p.fd(30)
+  p.left(90)
+
+#Draw second blue fan coral design with base at current position
+def coral2():
+  p.pensize(15)
+  p.color("lightblue")
+  p.down()
+  p.left(90)
+  p.fd(20)
+  p.left(45)
+  p.pensize(5)
+  
+  #draw fan
+  for i in range(10):
+    p.fd(60)
+    p.right(180)
+    p.fd(60)
+    p.left(170)
+  p.up()
+  p.right(125)
+  p.fd(20)
+  p.left(90)
+
+#Draw third pink semicircle with squares coral design with base at current position
+def coral3():
+  p.pensize(0)
+  p.color("pink")
+  p.up()
+  p.fd(40)
+  p.right(90)
+  p.fd(10)
+  p.begin_fill()
+  p.left(180)
+  p.circle(40,180)
+  p.end_fill()
+  p.left(90)
+  p.fd(40)
+  
+  #Draw squares using nested loops
+  for i in range(7):
+    if i%2==0:
+      p.setheading(152.5)
+      p.color("#4b008c")
+    else:
+      p.setheading(165)
+      p.color("#8900ff")
+    for j in range(6+i%2):
+      p.fd(35-5*i)
+      p.right(90)
+      p.begin_fill()
+      p.fd(5-i//2)
+      p.left(90)
+      p.fd(10-2*(i//2))
+      p.left(90)
+      p.fd(10-2*(i//2))
+      p.left(90)
+      p.fd(10-2*(i//2))
+      p.left(90)
+      p.fd(5-i//2)
+      p.end_fill()
+      p.right(90)
+      p.fd(35-5*i)
+      p.left(180)
+      p.right(25)
+
+#Draw three coral designs in a line
+def drawcoral():
+  p.speed(0)
+  p.hideturtle()
+  p.up()
+  p.fd(20)
+  for i in range(0, 5):
+    if i%3==0:
+      coral1()
+    elif i%3==1:
+      coral2()
+    elif i%3==2:
+      coral3()
+    p.fd(100)
+  p.up()
+
+#Draw a mole crab at current position
+def molecrab():
+  p.pensize(1)
+  p.color("black")
+  p.fillcolor("#e3edd3")
+  p.right(180)
+  p.fd(30)
+  p.setheading(200)
+  p.down()
+  
+  #draw legs
+  for i in range(4):
+    p.right(90)
+    p.begin_fill()
+    p.fd(4)
+    p.left(90)
+    p.fd(30)
+    p.circle(4,180)
+    p.fd(30)
+    p.left(90)
+    p.fd(4)
+    p.end_fill()
+    p.right(90)
+    p.right(150)
+  
+  #Draw shell
+  p.setheading(0)
+  p.fd(30)
+  p.fillcolor("#596348")
+  p.setheading(140)
+  p.begin_fill()
+  p.circle(60,50)
+  p.left(100)
+  p.fd(20)
+  p.circle(20,125)
+  p.fd(12)
+  p.end_fill()
+  p.right(-90)
+  p.begin_fill()
+  p.circle(15,-90)
+  p.left(90)
+  p.fd(15)
+  p.end_fill()
+  p.right(90)
+  p.fd(12)
+  p.up()
+  p.setheading(180)
+  p.fd(45)
+  p.right(90)
+  p.fd(15)
+  p.left(45)
+  p.pensize(1)
+  
+  #Draw eye
+  p.color("black")
+  p.fillcolor("#e3edd3")
+  p.down()
+  p.begin_fill()
+  p.fd(10)
+  p.circle(2,180)
+  p.fd(10)
+  p.circle(2,180)
+  p.end_fill()
+  p.up()
+  p.setheading(0)
+
 #create bg color and size
 screen.bgcolor("#3c96a8")
 screen.setup(600, 400)
