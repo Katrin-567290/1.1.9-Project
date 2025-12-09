@@ -1,5 +1,6 @@
 import turtle as trtl
 import math
+import time
 t=trtl.Turtle()
 t.speed(0)
 screen = trtl.Screen()
@@ -476,7 +477,11 @@ pjpos=-110
 ojmove=3
 pjmove=5
 while True:
-  t._tracer(0)
+  start=time.time()
+  while time.time()-start<0.3:
+    pass
+  t.clear()
+  screen.tracer(0)
   background()
   sand()
   brain_coral()
@@ -509,7 +514,6 @@ while True:
     pjmove=5
   pjpos+=pjmove
   jelly_pu()
-  t._tracer(1)
-  t._update()
+  screen.update()
 
 screen.mainloop()
