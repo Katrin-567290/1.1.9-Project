@@ -9,30 +9,29 @@ screen = trtl.Screen()
 t.hideturtle()
 b.hideturtle()
 #KATRIN - create bg color and size and RYCHELLE - create sand
-screen.setup(600, 400)
+#background_sand() is a function that's a combination of Katrin and Rychelle's code
+#using setup and bgcolor the background is filled and the screen size is changed
+#By making a huge circle the sand is formed at the bottom
 def background_sand():
-  b.up()
-  b.goto(-300,200)
-  b.fillcolor("#3c96a8")
-  b.begin_fill()
-  b.goto(300,200)
-  b.goto(300,-200)
-  b.goto(-300,-200)
-  b.goto(-300,200)
-  b.end_fill()
+  #color of background from ocean reference
+  screen.bgcolor("#3c96a8")
+  #changing screen size
+  screen.setup(600, 400)
   b.penup()
   b.fillcolor('khaki')
   b.pencolor('khaki')
   b.begin_fill()
+  #gigantic circle at a low point to make sand effect
   b.goto(0,-2120)
   b.pendown()
   b.circle(1000)
   b.end_fill()
 
-#KATRIN - move to where brain coral is
+#KATRIN - brain_coral() is a function to draw an octangular brain coral
 def brain_coral():
   t.setheading(0)
   t.pensize(15)
+  #color of brain coral body, orange
   t.pencolor("#fbad40")
   t.fillcolor("#fbad40")
   t.penup()
@@ -42,24 +41,27 @@ def brain_coral():
   t.begin_fill()
   t.circle(13)
   t.end_fill()
-  #make octagon variables, set colors
+  #make octagon variables, set colors, brown
   t.pencolor("#49330e")
   t.pensize(1)
   t.fillcolor("#49330e")
-  #angle for angle and space for space inbetween octagons and size for variation of size
+  #angle for turning angle and space for space inbetween octagons
   angle=60
   space=1
+  #oct_count is a counting variable to move along the list below when making the octagons
   oct_count=0
+  #octagon_sizes is a list with the various sizes of the octagons to have variation
   octagon_sizes=[1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2,2.1,2.2,2.3,2.4,2.5,2.6,2.7,2.8]
   t.penup()
   t.goto(61,-140)
-  #make octagons
+  #make octagons using while loop
   while t.ycor()<=-120 and t.ycor()>=-155:
     t.penup()
     t.left(angle)
     t.forward(space+3)
     t.pendown()
     t.begin_fill()
+    #implement values in list here to make varying sizes
     t.circle(octagon_sizes[oct_count],360,8)
     t.end_fill()
     space+=1
@@ -70,7 +72,9 @@ def brain_coral():
   t.setheading(0)
 
 #Katrin turtle
+#tx stands for turtle x-value
 tx=80
+#turtle() is a function that will draw a turtle
 def turtle():
   #go to turtle place
   t.penup()
@@ -83,29 +87,33 @@ def turtle():
   t.forward(20)
   t.right(90)
   t.pendown()
+  #belly colors, khaki sand
   t.pencolor("#b8ad59")
   t.fillcolor("#b8ad59")
   t.pensize(5)
   t.right(45)
   t.begin_fill()
+  #make curvature and basic shape of belly using for loop and math.pi
   for i in range(10):
     t.forward(2*math.pi)
     t.left(9)
   t.end_fill()
   #make shell
   t.pensize(1)
+  #shell color, chocolate and silver outline for shell pattern
   t.pencolor("#cec3a0")
   t.fillcolor("#785d46")
   t.begin_fill()
   t.left(90)
+  #make curvature and basic shape of shell using for loop and math.pi
   for i in range(10):
     t.forward(2*math.pi)
     t.left(9)
   t.end_fill()
-  #make shell shapes
+  #make shell shape patterns
   t.pensize(1)
-  t.pencolor("#cec3a0")
-  t.fillcolor("#785d46")
+  #using for loop and its values, use several if/else statements to make varying sizes
+  #of the hexagons/pentagons that pattern the shell, and to have them fit inside the shell
   for size in range(6):
     t.setheading(0)
     t.penup()
@@ -130,20 +138,26 @@ def turtle():
         t.left(5)
         t.circle(size+1.5,360,5)
       t.end_fill()
-  #make turtle head
+  #to make turtle head
   t.penup()
   t.goto(tx,140)
   t.setheading(180)
+  #neck color, khaki sand (same as belly)
+  #make neck
   t.pencolor("#b8ad59")
   t.pendown()
   t.pensize(10)
   t.forward(15)
+  #head color one, brown one
+  #make part of head
   t.pencolor("#595144")
   t.fillcolor("#595144")
   t.begin_fill()
   t.setheading(-90)
   t.circle(6,180,7)
   t.end_fill()
+  #head color two, brown two
+  #make second part of head
   t.pencolor("#5e4738")
   t.fillcolor("#5e4738")
   t.begin_fill()
@@ -153,6 +167,8 @@ def turtle():
   t.circle(7,180,8)
   t.end_fill()
   t.pensize(2)
+  #eye color, green
+  #make eye
   t.pencolor("green")
   t.circle(2)
   #make turtle fins
@@ -160,16 +176,22 @@ def turtle():
   t.pensize(1)
   t.turtlesize(1)
   t.goto(tx+14,132)
+  #turtle fin color, dark brown
   t.pencolor("#493f37")
   t.fillcolor("#493f37")
   if tx%20==0:
+    #rotation for first fin
     fin1rot=225
   else:
+    #rotation for second fin
     fin1rot=275
   t.pendown()
   t.begin_fill()
-  rotate=0 #determines trtl rotation value
-  move=0 #determines trtl movement value
+  #determines trtl rotation value
+  rotate=0 
+  #determines trtl movement value
+  move=0
+  #for loop to create actual fin with varying rotations
   for step in range(5):
     if(step<3):
       rotate=10*step
@@ -217,6 +239,7 @@ def turtle():
   t.penup()
   t.setheading(270)
   t.pendown()
+  #tail color, silver
   t.pencolor("#cec3a0")
   t.fillcolor("#cec3a0")
   t.setheading(-5)
@@ -226,6 +249,7 @@ def turtle():
   t.backward(6)
   t.end_fill()
   #make fourth fin rear
+  #fin color
   t.pencolor("#493f37")
   t.fillcolor("#493f37")
   t.penup()
